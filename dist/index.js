@@ -75,31 +75,92 @@ var possibleConstructorReturn = function (self, call) {
 };
 
 var Header = function Header(_ref) {
-  var profileImage = _ref.profileImage,
-      heading = _ref.heading,
-      subheading = _ref.subheading;
+  var image = _ref.image,
+      authorName = _ref.authorName,
+      timeago = _ref.timeago;
   return React__default.createElement(
     'div',
     { style: styles.main },
-    profileImage && React__default.createElement('div', { style: _extends({}, styles.img, { backgroundImage: 'url(' + profileImage + ')' }) }),
+    image && React__default.createElement('div', { style: _extends({}, styles.img, { backgroundImage: 'url(' + image + ')' }) }),
     React__default.createElement(
       'span',
       { style: styles.text },
       React__default.createElement(
         'p',
-        { style: styles.heading },
-        heading
+        { style: styles.authorName },
+        authorName
       ),
       React__default.createElement(
         'p',
-        { style: styles.subheading },
-        subheading
+        { style: styles.timeago },
+        timeago
       )
     )
   );
 };
 
 var styles = {
+  main: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  img: {
+    width: 50,
+    height: 50,
+    minHeight: 'auto',
+    borderRadius: 50,
+    marginRight: 10,
+    filter: 'drop-shadow(0 0px 2px rgba(0, 0, 0, 0.5))',
+    border: '2px solid rgba(255, 255, 255, 0.8)',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center'
+  },
+  text: {
+    display: 'flex',
+    flexDirection: 'column'
+  },
+  authorName: {
+    fontSize: '1.2rem',
+    fontFamily: '"Abril Titling Bold", "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif',
+    color: 'rgba(255, 255, 255, 0.9)'
+  },
+  timeago: {
+    fontSize: '0.9rem',
+    color: 'rgba(255, 255, 255, 0.9)'
+  }
+};
+
+Header.propTypes = {
+  heading: PropTypes.string,
+  subheading: PropTypes.string,
+  profileImage: PropTypes.string
+};
+
+var Header$1 = function Header(_ref) {
+  var profileImage = _ref.profileImage,
+      heading = _ref.heading,
+      subheading = _ref.subheading;
+  return React__default.createElement(
+    'div',
+    { style: styles$1.main },
+    React__default.createElement(
+      'span',
+      { style: styles$1.text },
+      React__default.createElement(
+        'p',
+        { style: styles$1.heading },
+        heading
+      ),
+      React__default.createElement(
+        'p',
+        { style: styles$1.subheading },
+        subheading
+      )
+    )
+  );
+};
+
+var styles$1 = {
   main: {
     display: 'flex'
   },
@@ -117,20 +178,22 @@ var styles = {
   text: {
     display: 'flex',
     flexDirection: 'column',
-    width: '80%'
+    padding: 20
   },
   heading: {
-    fontSize: '1.5rem',
+    fontSize: '1.9rem',
+    marginBottom: '1rem',
     fontFamily: '"Abril Titling Bold", "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif',
     color: 'rgba(255, 255, 255, 0.9)'
   },
   subheading: {
-    fontSize: '0.9rem',
+    fontSize: '1rem',
+    lineHeight: '1.2',
     color: 'rgba(255, 255, 255, 0.9)'
   }
 };
 
-Header.propTypes = {
+Header$1.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
   profileImage: PropTypes.string
@@ -163,8 +226,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css = "body{\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n}\n\n.styles_inner__x-amJ {\n  background: #fff;\n  height: 100%;\n  max-width: 100%;\n  transform-origin: center left;\n\n  -webkit-backface-visibility: hidden;\n  -moz-backface-visibility: hidden;\n  -ms-backface-visibility: hidden;\n  backface-visibility: hidden;\n\n  -webkit-perspective: 1000;\n  -moz-perspective: 1000;\n  -ms-perspective: 1000;\n  perspective: 1000;\n}\n\np{\n  margin: 0\n}\n\n@keyframes styles_slidein__1q-h- {\n  from { \n    -webkit-transform: scale3d(0, 1, 1);\n    -moz-transform: scale3d(0, 1, 1);\n    -ms-transform: scale3d(0, 1, 1);\n    -o-transform: scale3d(0, 1, 1);\n    transform: scale3d(0, 1, 1); \n  }\n  to { \n    -webkit-transform: scale3d(1, 1, 1);\n    -moz-transform: scale3d(1, 1, 1);\n    -ms-transform: scale3d(1, 1, 1);\n    -o-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1); \n  }\n}\n\n.styles_spinner__1CK7F {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  background-color: #fff;\n\n  border-radius: 100%;  \n  -webkit-animation: styles_sk-scaleout__1hEQ2 1.0s infinite ease-in-out;\n  animation: styles_sk-scaleout__1hEQ2 1.0s infinite ease-in-out;\n}\n\n@-webkit-keyframes styles_sk-scaleout__1hEQ2 {\n  0% { -webkit-transform: scale(0) }\n  100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n  }\n}\n\n@keyframes styles_sk-scaleout__1hEQ2 {\n  0% { \n    -webkit-transform: scale(0);\n    transform: scale(0);\n  } 100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n  }\n}\n\n.styles_autoHide__83H_q{\n  transition: opacity 400ms ease-in-out\n}\n\n.styles_seeMore__1dyHs{\n  height: 10vh;\n  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.styles_seeMore__1dyHs:hover{\n  cursor: pointer;\n}\n\n.styles_seeMore__1dyHs .styles_seemoreText__1wvli{\n  color: white;\n  text-align: center;\n  letter-spacing: 0.2em;\n  margin-bottom: 2.2vh;\n  text-transform: capitalize;\n  opacity: 0.6;\n  font-size: 0.7em;\n  transition: opacity 300ms ease-in-out  \n}\n\n.styles_seeMore__1dyHs .styles_seemoreIcon__1rAV5{\n  color: white;\n  text-align: center;\n  letter-spacing: 0.2em;\n  margin-bottom: 0.5vh;\n  opacity: 0.6;\n  text-transform: capitalize;\n  transition: opacity 300ms ease-in-out\n}\n\n.styles_seeMore__1dyHs:hover > .styles_seemoreIcon__1rAV5 {\n  opacity: 0.9;\n}\n\n.styles_seeMore__1dyHs:hover > .styles_seemoreText__1wvli {\n  opacity: 0.9;\n}\n\n.styles_seemoreIcon__1rAV5 img {\n  width: 5vh;\n}\n\n.styles_seeMoreExpanded__1l-e8 {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  box-sizing: border-box;\n  z-index: 99999;\n}\n\n.styles_seeMoreClose__3jq_i{\n  position: absolute;\n  filter: drop-shadow(0 3px 2px #ccc);\n  right: 0.5rem;\n  top: 0.5rem;\n  font-size: 1.5rem;\n  opacity: 0.7;\n  padding: 1rem\n}\n\n.styles_seeMoreClose__3jq_i:hover{\n  cursor: pointer;\n}";
-var style = { "inner": "styles_inner__x-amJ", "spinner": "styles_spinner__1CK7F", "sk-scaleout": "styles_sk-scaleout__1hEQ2", "autoHide": "styles_autoHide__83H_q", "seeMore": "styles_seeMore__1dyHs", "seemoreText": "styles_seemoreText__1wvli", "seemoreIcon": "styles_seemoreIcon__1rAV5", "seeMoreExpanded": "styles_seeMoreExpanded__1l-e8", "seeMoreClose": "styles_seeMoreClose__3jq_i", "slidein": "styles_slidein__1q-h-" };
+var css = "body{\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n}\n\n.styles_inner__x-amJ {\n  background: #fff;\n  height: 100%;\n  max-width: 100%;\n  transform-origin: center left;\n\n  -webkit-backface-visibility: hidden;\n  -moz-backface-visibility: hidden;\n  -ms-backface-visibility: hidden;\n  backface-visibility: hidden;\n\n  -webkit-perspective: 1000;\n  -moz-perspective: 1000;\n  -ms-perspective: 1000;\n  perspective: 1000;\n}\n\np{\n  margin: 0\n}\n\n@keyframes styles_slidein__1q-h- {\n  from {\n    -webkit-transform: scale3d(0, 1, 1);\n    -moz-transform: scale3d(0, 1, 1);\n    -ms-transform: scale3d(0, 1, 1);\n    -o-transform: scale3d(0, 1, 1);\n    transform: scale3d(0, 1, 1);\n  }\n  to {\n    -webkit-transform: scale3d(1, 1, 1);\n    -moz-transform: scale3d(1, 1, 1);\n    -ms-transform: scale3d(1, 1, 1);\n    -o-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n.styles_spinner__1CK7F {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  background-color: #fff;\n\n  border-radius: 100%;\n  -webkit-animation: styles_sk-scaleout__1hEQ2 1.0s infinite ease-in-out;\n  animation: styles_sk-scaleout__1hEQ2 1.0s infinite ease-in-out;\n}\n\n@-webkit-keyframes styles_sk-scaleout__1hEQ2 {\n  0% { -webkit-transform: scale(0) }\n  100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n  }\n}\n\n@keyframes styles_sk-scaleout__1hEQ2 {\n  0% {\n    -webkit-transform: scale(0);\n    transform: scale(0);\n  } 100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n  }\n}\n\n.styles_autoHide__83H_q{\n  transition: opacity 400ms ease-in-out\n}\n\n.styles_seeMore__1dyHs{\n  height: 10vh;\n  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.styles_seeMore__1dyHs:hover{\n  cursor: pointer;\n}\n\n.styles_seeMore__1dyHs .styles_seemoreText__1wvli{\n  color: white;\n  text-align: center;\n  letter-spacing: 0.2em;\n  margin-bottom: 2.2vh;\n  text-transform: capitalize;\n  opacity: 0.6;\n  font-size: 0.7em;\n  transition: opacity 300ms ease-in-out\n}\n\n.styles_seeMore__1dyHs .styles_seemoreIcon__1rAV5{\n  color: white;\n  text-align: center;\n  letter-spacing: 0.2em;\n  margin-bottom: 0.5vh;\n  opacity: 0.6;\n  text-transform: capitalize;\n  transition: opacity 300ms ease-in-out\n}\n\n.styles_seeMore__1dyHs:hover > .styles_seemoreIcon__1rAV5 {\n  opacity: 0.9;\n}\n\n.styles_seeMore__1dyHs:hover > .styles_seemoreText__1wvli {\n  opacity: 0.9;\n}\n\n.styles_seemoreIcon__1rAV5 img {\n  width: 5vh;\n}\n\n.styles_seeMoreExpanded__1l-e8 {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  box-sizing: border-box;\n  z-index: 99999;\n}\n\n.styles_seeMoreClose__3jq_i{\n  position: absolute;\n  filter: drop-shadow(0 3px 2px #ccc);\n  right: 0.5rem;\n  top: 0.5rem;\n  font-size: 1.5rem;\n  opacity: 0.7;\n  padding: 1rem\n}\n\n.styles_seeMoreClose__3jq_i:hover{\n  cursor: pointer;\n}\n\n.styles_story__ULVZ4::before,\n.styles_story__ULVZ4::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  right: 0;\n  height: 40%;\n}\n\n.styles_story__ULVZ4::before {\n  top: 0;\n  background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(0,212,255,0) 100%);\n}\n.styles_story__ULVZ4::after {\n  bottom: 0;\n  background: linear-gradient(0deg, rgba(3,2,22,1) 40%, rgba(0,212,255,0) 100%);\n}\n";
+var style = { "inner": "styles_inner__x-amJ", "spinner": "styles_spinner__1CK7F", "sk-scaleout": "styles_sk-scaleout__1hEQ2", "autoHide": "styles_autoHide__83H_q", "seeMore": "styles_seeMore__1dyHs", "seemoreText": "styles_seemoreText__1wvli", "seemoreIcon": "styles_seemoreIcon__1rAV5", "seeMoreExpanded": "styles_seeMoreExpanded__1l-e8", "seeMoreClose": "styles_seeMoreClose__3jq_i", "story": "styles_story__ULVZ4", "slidein": "styles_slidein__1q-h-" };
 styleInject(css);
 
 var up = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAG7AAABuwBHnU4NQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAfDSURBVHic7Z1prB5THMaf6a1agsYSe621tSJC8EEIUUWRtraKShNEbIktoQRRW2JJfEJi+dQPEkttIWiRoBK0jfWiVWoXxa1a7+1t+/PhTNPXa/7zztx3zjnTa37JpM29d87znGXOnDnzP2ekhoaGhoaGhoaGhoaGhqAksQ3kAWwt6XBJ+0vaNz3GpL/equ3PV6T/fi1pcXp8KuntJEn6/LsdGrWqAKBH0pGSJkqaIOlgST1dJrtG0iJJL0uaK+mNJEnWdpnm8AFIgAnAbKAP//SlWhOAWjXAoKQFPxVYFKDQLRYCk/93FQGcDnwQseDbeQ84NXa5eAc4DFgQubDzWAAcGrJMglx6wCaSbpF0haSNSp7+uaTXJC2RtDQ9fpf0h6TB9G82krS5pC0kjZW0d3ocLWnPknqDku6RdFOSJAMlz60fwFjK9fOrgXnARUDZwrP0LwZeAdaU8LGwCv2o4Pr6XwtmeClwBbCjRz87AVcCnxf0tAKY6suPV4BrgLUFMtkLnAOMDOhtJDAD+KSAv7XAVaG8dQ0wArivQMaWp4UQbQiIGwrPAH4q4PdeYEQsr4VIM/Rwgcw8hseupiy4rmlOAd8PxmwwHQHu75CBFcDpsX1a4K6G3zvk4b7YPjMBrutg/DNgXGyfnQAOoPNN+prYPv8FcAb5N9xFwPaxfRYF2AF4Nyc/a6nLkzOwB65rsXgN2DK2z7IAo4HXc/LVB+wW2+TGuAcWi/nAZlFNdgGwGfBmTv4WAKNiGrwpx9wSYLto5ioC1x0tzcnnDbGM7Q8MGKZWAmOjGPMAsHeapywGgP1CG0pwfbvFmUENBQCYlpPfeaHNTMkxMzuomYAAj+Tk+5RQJkbg5m+yWI57kT4sAbbBnrZ4jxBPybhXeBbnezcQGeDCnPyfHMKANSzrpe6TVRUA9ACfGmXwhm/xA3Nqf4ZX8Ww/xwDHRNA9N6ccxvsUvscQ/QwX0xMM4FTcEHCAwNMCuPcJy4yyuNuXaA/wvSEadHIKNwprfQYZACYH9nCtURbf4KMrBo41BFcDO1UuaPtoL/wolQDsgv2O+SgfgncaYs9VLmZ7mJ5WuMVqYHpAPy8YPm7zIfaWIRZk6Ind8tsJdiVgD0nnVy20FXbL271SsWz9Ti2/nSBXArCXoT9IlVPw2P3/V5WJ2NpFW347Qa4E4FtD/+gi5xe9W1uzfdVeam0AUyQ9Ksmac18tF36exShJjwWoBKsMCs2QdlsBHxc8vzRpF/KE7MIfkDRF0uT0/1mMkjTHc3dklUF1U9TAXOMy8xLhQOc+vx+Y1PL3J6U/s/B2T8Cepn6hSpEPDZGDKhNZr9Wpzx8EpmWcNy39nYWXewJwiKH3fpUiXxoiu1YmovItP+P8SQS+EoDdDa1lVYr8YohUNvdfsPBPLJBO0ErAvSPI4ueqNITdJVQSEVBV4bekF6wSgFGGRnVrC4BVhkjZxRZZaXfq81cxhJs9LljM+z0BF5qTRX+3abeKeOmC6Nzy/6ZEy89I/8Q0DYuurwRgWyPtn7pJt13EugkPOTKsYOGfUIF3r5WAiwzM4otuvbeKfGSIDGkYSrFu57QK/Z+G3Y1CF90RgYahLxoi/xmPF0grSMvP0D0BD1cCcLaR3vNFzi86FbHE+Pk+Bc+X5G5Ykm6Wvf3AoKSzkyR5sUy6RUjTnK71Kyvb6ZF0M+VHdlYZWGX2L4pWwGLj56XmO9JlnxMlZc2iDkqaliTJU2XSLKn/pKSzlF0JX0k6LkmSVSWTtcrAKrPyUPF0NO7pcVlLOgO4mc8g4LZIaL0nLGOI7zXocjq6qMjm2DexIQXh4qKOe3H98vGVmS2uf3yq3QvsMMQ09jXKpJ+qw/Lx8EoS2JUuxvndghuijun8l+b5YV5JpmK3GWJhI4NrBPCqUSazfIjVIiylLhAhLKU2gVl1gNCBWanoHYbot8RcKxUYYBPgB6MsbvcpPM4QBTjPm3DNAC7IKQe/y5XID08PGqAbA2KGp6cGJuXU/qXeDUQGuDwn/5XPYVkm3jEM/AbsEsREBHBTz38aefcaI9VuJG+R3pxgRgKCWxn6TE6+wyzSazH0bI6ZK4OaCQBwdU5+n45haCz2/Ho/cHBwU54ADsV+gfQXsfaWI3+rgq+BnaMYqxBgDPaMJ8TaqiA1NwJ4Ocfcx2zA64aB7XDr3yzmEntlaNpCfs4xOVy3q1lOXa5wXHBs3p6cw23DpjWEGvMXBbgsxzAMry3L6vnACczqYLwf9yRZu50HceP8meSHrwDcGNurSZqJhzpkADbcbSsfqGPj+Q9pS+rEn7grJto0Ni6ucxZuLN+JmbF8DgmarYvjg9vPoehnSeq4efcvBN4CoXJwkQ/zC2YY1m9ffwkVjJqA8cCllN++/nW6iJgoSqgPOIyUNFPS9ZI2LXn6j5LelFuN2Cv3aao+SSuTJFmZpj9a0mhJW8tFqo2XNE7SEZLKPn/8LelWSXclSWItgd0wwXUBj5dohaGZzf8hwgMXLh7z60ntLGRD/VBDNwATsYObQvAKcFzscogOLshpJm63Xd8sTrVqMZFWq6c63NTuUfL3KcOXJM2v06cMa1UB7eDeJRwmaa+WY2e5D3muOyT3Ic91x3dyn75ad7xT5495NjQ0NDQ0NDQ0NDQ0NATmHxLcnGvnnDNMAAAAAElFTkSuQmCC";
@@ -289,7 +352,7 @@ var Story = function (_React$Component) {
       var _this3 = this;
 
       var source = _typeof(this.props.story) === 'object' ? this.props.story.url : this.props.story;
-      var storyContentStyles = this.props.story.styles || this.props.storyContentStyles || styles$1.storyContent;
+      var storyContentStyles = this.props.story.styles || this.props.storyContentStyles || styles$2.storyContent;
       var type = this.props.story.type === 'video' ? 'video' : 'image';
       if (type === 'image') {
         return React__default.createElement(
@@ -315,29 +378,34 @@ var Story = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this4 = this;
+      // let isHeader = typeof this.props.story === 'object' && this.props.story.header
+      var _props$story$header = this.props.story.header,
+          heading = _props$story$header.heading,
+          subheading = _props$story$header.subheading,
+          authorName = _props$story$header.authorName,
+          timeago = _props$story$header.timeago,
+          profileImage = _props$story$header.profileImage;
+      var _props = this.props,
+          height = _props.height,
+          width = _props.width;
 
-      var isHeader = _typeof(this.props.story) === 'object' && this.props.story.header;
-      var headerStyles = {
-        position: 'absolute',
-        left: 12,
-        bottom: 20,
-        zIndex: 19
-      };
       return React__default.createElement(
         'div',
-        { style: _extends({}, styles$1.story, { width: this.props.width, height: this.props.height }) },
+        { className: style.story, style: _extends({}, styles$2.story, { width: width, height: height }) },
         this.getStoryContent(),
-        isHeader && React__default.createElement(
+        React__default.createElement(
           'div',
-          { style: headerStyles },
-          this.props.header ? function () {
-            return _this4.props.header(_this4.props.story.header);
-          } : React__default.createElement(Header, { heading: this.props.story.header.heading, subheading: this.props.story.header.subheading, profileImage: this.props.story.header.profileImage })
+          { style: _extends({}, styles$2.header) },
+          React__default.createElement(Header, { authorName: authorName, timeago: timeago, image: profileImage })
+        ),
+        React__default.createElement(
+          'div',
+          { style: _extends({}, styles$2.body) },
+          React__default.createElement(Header$1, { heading: heading, subheading: subheading })
         ),
         !this.state.loaded && React__default.createElement(
           'div',
-          { style: { width: this.props.width, height: this.props.height, position: 'absolute', left: 0, top: 0, background: 'rgba(0, 0, 0, 0.9)', zIndex: 9, display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#ccc' } },
+          { style: _extends({}, styles$2.loading, { width: width, height: height }) },
           this.props.loader || React__default.createElement('div', { className: style.spinner })
         ),
         this.props.story.seeMore && React__default.createElement(
@@ -352,7 +420,7 @@ var Story = function (_React$Component) {
 }(React__default.Component);
 
 
-var styles$1 = {
+var styles$2 = {
   story: {
     display: 'flex',
     position: 'relative',
@@ -363,6 +431,31 @@ var styles$1 = {
     maxWidth: '100%',
     maxHeight: '100%',
     margin: 'auto'
+  },
+  header: {
+    position: 'absolute',
+    paddingLeft: 20,
+    paddingRight: 20,
+    top: 40,
+    zIndex: 19
+  },
+  body: {
+    position: 'absolute',
+    paddingLeft: 10,
+    paddingRight: 10,
+    bottom: 20,
+    zIndex: 19
+  },
+  loading: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    background: 'rgba(0, 0, 0, 0.9)',
+    zIndex: 9,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: '#ccc'
   }
 };
 
@@ -382,7 +475,7 @@ Story.propTypes = {
 var ProgressWrapper = function ProgressWrapper(props) {
   return React__default.createElement(
     'div',
-    { className: style.autoHide, style: _extends({}, styles$2.progress, getProgressWrapperStyle(props)) },
+    { className: style.autoHide, style: _extends({}, styles$3.progress, getProgressWrapperStyle(props)) },
     props.children
   );
 };
@@ -397,9 +490,9 @@ var getProgressWrapperStyle = function getProgressWrapperStyle(_ref) {
   };
 };
 
-var styles$2 = {
+var styles$3 = {
   progress: {
-    height: 2,
+    height: 3,
     maxWidth: '100%',
     background: '#555',
     margin: 2
@@ -527,7 +620,7 @@ var ProgressArray = function (_React$Component) {
 
       return React__default.createElement(
         'div',
-        { style: styles$3.progressArr },
+        { style: styles$4.progressArr },
         this.props.length.map(function (i, index) {
           return React__default.createElement(Progress, {
             key: index,
@@ -548,7 +641,7 @@ var ProgressArray = function (_React$Component) {
 }(React__default.Component);
 
 
-var styles$3 = {
+var styles$4 = {
   progressArr: {
     display: 'flex',
     justifyContent: 'center',
@@ -560,7 +653,7 @@ var styles$3 = {
     paddingTop: 7,
     alignSelf: 'center',
     zIndex: 99,
-    filter: 'drop-shadow(0 1px 8px #000)'
+    filter: 'drop-shadow(0 1px 10px #000)'
   }
 };
 
@@ -681,7 +774,7 @@ var Container = function (_React$PureComponent) {
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      document.addEventListener('keyup', this.handleKeyup);
+      document.removeEventListener('keyup', this.handleKeyup);
     }
   }, {
     key: 'render',
@@ -690,7 +783,7 @@ var Container = function (_React$PureComponent) {
 
       return React__default.createElement(
         'div',
-        { style: _extends({}, styles$4.container, { width: this.width, height: this.height }) },
+        { style: _extends({}, styles$5.container, { width: this.width, height: this.height }) },
         React__default.createElement(ProgressArray, {
           next: this.next,
           pause: this.state.pause,
@@ -720,7 +813,7 @@ var Container = function (_React$PureComponent) {
         }),
         React__default.createElement(
           'div',
-          { style: styles$4.overlay },
+          { style: styles$5.overlay },
           React__default.createElement('div', { style: { width: '50%', zIndex: 999 }, onTouchStart: this.debouncePause, onTouchEnd: function onTouchEnd(e) {
               return _this2.mouseUp(e, 'previous');
             }, onMouseDown: this.debouncePause, onMouseUp: function onMouseUp(e) {
@@ -738,7 +831,7 @@ var Container = function (_React$PureComponent) {
   return Container;
 }(React__default.PureComponent);
 
-var styles$4 = {
+var styles$5 = {
   container: {
     display: 'flex',
     flexDirection: 'column',
@@ -749,7 +842,8 @@ var styles$4 = {
     position: 'absolute',
     height: 450,
     width: 'inherit',
-    display: 'flex'
+    display: 'flex',
+    top: 60
   },
   left: {},
   right: {}

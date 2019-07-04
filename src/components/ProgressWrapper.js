@@ -15,7 +15,7 @@ const getProgressWrapperStyle = ({ width, pause, bufferAction }) => ({
 
 const styles = {
   progress: {
-    height: 2,
+    height: 3,
     maxWidth: '100%',
     background: '#555',
     margin: 2

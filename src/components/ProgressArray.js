@@ -35,7 +35,7 @@ const styles = {
     paddingTop: 7,
     alignSelf: 'center',
     zIndex: 99,
-    filter: 'drop-shadow(0 1px 8px #000)'
+    filter: 'drop-shadow(0 1px 10px #000)'
   }
 }
 

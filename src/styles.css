@@ -24,19 +24,19 @@ p{
 }
 
 @keyframes slidein {
-  from { 
+  from {
     -webkit-transform: scale3d(0, 1, 1);
     -moz-transform: scale3d(0, 1, 1);
     -ms-transform: scale3d(0, 1, 1);
     -o-transform: scale3d(0, 1, 1);
-    transform: scale3d(0, 1, 1); 
+    transform: scale3d(0, 1, 1);
   }
-  to { 
+  to {
     -webkit-transform: scale3d(1, 1, 1);
     -moz-transform: scale3d(1, 1, 1);
     -ms-transform: scale3d(1, 1, 1);
     -o-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1); 
+    transform: scale3d(1, 1, 1);
   }
 }
 
@@ -46,7 +46,7 @@ p{
   margin: 100px auto;
   background-color: #fff;
 
-  border-radius: 100%;  
+  border-radius: 100%;
   -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
   animation: sk-scaleout 1.0s infinite ease-in-out;
 }
@@ -60,7 +60,7 @@ p{
 }
 
 @keyframes sk-scaleout {
-  0% { 
+  0% {
     -webkit-transform: scale(0);
     transform: scale(0);
   } 100% {
@@ -96,7 +96,7 @@ p{
   text-transform: capitalize;
   opacity: 0.6;
   font-size: 0.7em;
-  transition: opacity 300ms ease-in-out  
+  transition: opacity 300ms ease-in-out
 }
 
 .seeMore .seemoreIcon{
@@ -143,4 +143,22 @@ p{
 
 .seeMoreClose:hover{
   cursor: pointer;
+}
+
+.story::before,
+.story::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 40%;
+}
+
+.story::before {
+  top: 0;
+  background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(0,212,255,0) 100%);
+}
+.story::after {
+  bottom: 0;
+  background: linear-gradient(0deg, rgba(3,2,22,1) 40%, rgba(0,212,255,0) 100%);
 }

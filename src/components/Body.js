@@ -1,25 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Header = ({ image, authorName, timeago }) =>
+const Header = ({ profileImage, heading, subheading }) =>
   <div style={styles.main}>
-    {image && <div style={{...styles.img, backgroundImage: `url(${image})`}} />}
     <span style={styles.text}>
-      <p style={styles.authorName}>{authorName}</p>
-      <p style={styles.timeago}>{timeago}</p>
+      <p style={styles.heading}>{heading}</p>
+      <p style={styles.subheading}>{subheading}</p>
     </span>
   </div>
 
 const styles = {
   main: {
-    display: 'flex',
-    alignItems: 'center'
+    display: 'flex'
   },
   img: {
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
     minHeight: 'auto',
-    borderRadius: 50,
+    borderRadius: 60,
     marginRight: 10,
     filter: 'drop-shadow(0 0px 2px rgba(0, 0, 0, 0.5))',
     border: '2px solid rgba(255, 255, 255, 0.8)',
@@ -28,15 +26,18 @@ const styles = {
   },
   text: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    padding: 20
   },
-  authorName: {
-    fontSize: '1.2rem',
+  heading: {
+    fontSize: '1.9rem',
+    marginBottom: '1rem',
     fontFamily: `"Abril Titling Bold", "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif`,
     color: 'rgba(255, 255, 255, 0.9)'
   },
-  timeago: {
-    fontSize: '0.9rem',
+  subheading: {
+    fontSize: '1rem',
+    lineHeight: '1.2',
     color: 'rgba(255, 255, 255, 0.9)'
   }
 }

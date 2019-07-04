@@ -22,7 +22,7 @@ class Container extends React.PureComponent {
   }
 
   componentWillUnmount() {
-    document.addEventListener('keyup', this.handleKeyup)
+    document.removeEventListener('keyup', this.handleKeyup)
   }
 
   pause = (action, bufferAction) => {
@@ -149,7 +149,8 @@ const styles = {
     position: 'absolute',
     height: 450,
     width: 'inherit',
-    display: 'flex'
+    display: 'flex',
+    top: 60
   },
   left: {
   },

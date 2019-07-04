@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Header from './Header'
+import Body from './Body'
 import SeeMore from './SeeMore'
 import globalStyle from './../styles.css'
 
@@ -83,20 +84,23 @@ export default class Story extends React.Component {
     return (type === 'video' ? <video ref={r => { this.vid = r }} style={storyContentStyles} src={source} controls={false} onLoadedData={this.videoLoaded} autoPlay playsInline /> : null)
   }
   render() {
-    let isHeader = typeof this.props.story === 'object' && this.props.story.header
-    const headerStyles = {
-      position: 'absolute',
-      left: 12,
-      bottom: 20,
-      zIndex: 19
-    }
+    // let isHeader = typeof this.props.story === 'object' && this.props.story.header
+    const { heading, subheading, authorName, timeago, profileImage } = this.props.story.header
+    const { height, width } = this.props
     return (
-      <div style={{...styles.story, width: this.props.width, height: this.props.height}}>
+      <div className={globalStyle.story} style={{...styles.story, width, height}}>
         {this.getStoryContent()}
-        {isHeader && <div style={headerStyles}>
-          {this.props.header ? () => this.props.header(this.props.story.header) : <Header heading={this.props.story.header.heading} subheading={this.props.story.header.subheading} profileImage={this.props.story.header.profileImage} />}
-        </div>}
-        {!this.state.loaded && <div style={{width: this.props.width, height: this.props.height, position: 'absolute', left: 0, top: 0, background: 'rgba(0, 0, 0, 0.9)', zIndex: 9, display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#ccc'}}>{this.props.loader || <div className={globalStyle.spinner} />}</div>}
+        <div style={{...styles.header}}>
+          <Header authorName={authorName} timeago={timeago} image={profileImage} />
+        </div>
+        <div style={{...styles.body}}>
+          <Body heading={heading} subheading={subheading} />
+        </div>
+        {!this.state.loaded && (
+          <div style={{...styles.loading, width, height}}>
+            {this.props.loader || <div className={globalStyle.spinner} />}
+          </div>)
+        }
         {this.props.story.seeMore &&
         <div style={{position: 'absolute', margin: 'auto', bottom: 0, zIndex: 9999, width: '100%'}}>
           <SeeMore action={this.props.action} toggleMore={this.toggleMore} showContent={this.state.showMore} seeMoreContent={this.props.story.seeMore} />
@@ -117,6 +121,31 @@ const styles = {
     maxWidth: '100%',
     maxHeight: '100%',
     margin: 'auto'
+  },
+  header: {
+    position: 'absolute',
+    paddingLeft: 20,
+    paddingRight: 20,
+    top: 40,
+    zIndex: 19
+  },
+  body: {
+    position: 'absolute',
+    paddingLeft: 10,
+    paddingRight: 10,
+    bottom: 20,
+    zIndex: 19
+  },
+  loading: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    background: 'rgba(0, 0, 0, 0.9)',
+    zIndex: 9,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    color: '#ccc'
   }
 }
 
