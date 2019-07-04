@@ -291,11 +291,24 @@ var Story = function (_React$Component) {
       var source = _typeof(this.props.story) === 'object' ? this.props.story.url : this.props.story;
       var storyContentStyles = this.props.story.styles || this.props.storyContentStyles || styles$1.storyContent;
       var type = this.props.story.type === 'video' ? 'video' : 'image';
-      return type === 'image' ? React__default.createElement('img', {
-        style: storyContentStyles,
-        src: source,
-        onLoad: this.imageLoaded
-      }) : type === 'video' ? React__default.createElement('video', { ref: function ref(r) {
+      if (type === 'image') {
+        return React__default.createElement(
+          'div',
+          { style: _extends({}, storyContentStyles, {
+              width: '100%',
+              height: '100%',
+              backgroundImage: 'url(' + source + ')',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center'
+            }) },
+          React__default.createElement('img', {
+            style: { display: 'none' },
+            src: source,
+            onLoad: this.imageLoaded
+          })
+        );
+      }
+      return type === 'video' ? React__default.createElement('video', { ref: function ref(r) {
           _this3.vid = r;
         }, style: storyContentStyles, src: source, controls: false, onLoadedData: this.videoLoaded, autoPlay: true, playsInline: true }) : null;
     }

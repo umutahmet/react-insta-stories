@@ -63,13 +63,24 @@ export default class Story extends React.Component {
     let source = typeof this.props.story === 'object' ? this.props.story.url : this.props.story
     let storyContentStyles = this.props.story.styles || this.props.storyContentStyles || styles.storyContent
     let type = this.props.story.type === 'video' ? 'video' : 'image'
-    return (
-      type === 'image' ? <img
-        style={storyContentStyles}
-        src={source}
-        onLoad={this.imageLoaded}
-      /> : (type === 'video' ? <video ref={r => { this.vid = r }} style={storyContentStyles} src={source} controls={false} onLoadedData={this.videoLoaded} autoPlay playsInline /> : null)
-    )
+    if (type === 'image') {
+      return (<div style={{
+        ...storyContentStyles,
+        width: '100%',
+        height: '100%',
+        backgroundImage: `url(${source})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center'
+      }}>
+        <img
+          style={{display: 'none'}}
+          src={source}
+          onLoad={this.imageLoaded}
+        />
+      </div>
+      )
+    }
+    return (type === 'video' ? <video ref={r => { this.vid = r }} style={storyContentStyles} src={source} controls={false} onLoadedData={this.videoLoaded} autoPlay playsInline /> : null)
   }
   render() {
     let isHeader = typeof this.props.story === 'object' && this.props.story.header
