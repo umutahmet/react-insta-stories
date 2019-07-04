@@ -86,7 +86,7 @@ export default class Story extends React.Component {
   render() {
     // let isHeader = typeof this.props.story === 'object' && this.props.story.header
     const { heading, subheading, authorName, timeago, profileImage } = this.props.story.header
-    const { height, width } = this.props
+    const { action, height, width, story: { seeMore } } = this.props
     return (
       <div className={globalStyle.story} style={{...styles.story, width, height}}>
         {this.getStoryContent()}
@@ -98,13 +98,14 @@ export default class Story extends React.Component {
         </div>
         {!this.state.loaded && (
           <div style={{...styles.loading, width, height}}>
-            {this.props.loader || <div className={globalStyle.spinner} />}
+            {this.props.loader || <div className={globalStyle.spinner}>🍌</div>}
           </div>)
         }
-        {this.props.story.seeMore &&
-        <div style={{position: 'absolute', margin: 'auto', bottom: 0, zIndex: 9999, width: '100%'}}>
-          <SeeMore action={this.props.action} toggleMore={this.toggleMore} showContent={this.state.showMore} seeMoreContent={this.props.story.seeMore} />
-        </div>}
+        {/* {seeMore &&
+          <div style={{position: 'absolute', margin: 'auto', bottom: 0, zIndex: 9999, width: '100%'}}>
+            <SeeMore action={action} toggleMore={this.toggleMore} showContent={this.state.showMore} seeMoreContent={seeMore} />
+          </div>
+        } */}
       </div>
     )
   }

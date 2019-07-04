@@ -6,6 +6,11 @@ const Header = ({ profileImage, heading, subheading }) =>
     <span style={styles.text}>
       <p style={styles.heading}>{heading}</p>
       <p style={styles.subheading}>{subheading}</p>
+      <div style={{...styles.readMore}}>
+        <div style={{...styles.blank}}>&nbsp;</div>
+        <button style={{...styles.readMoreButton}}>READ ARTICLE</button>
+        <div style={{...styles.blank}}>&nbsp;</div>
+      </div>
     </span>
   </div>
 
@@ -39,6 +44,21 @@ const styles = {
     fontSize: '1.2rem',
     lineHeight: '1.4',
     color: 'rgba(255, 255, 255, 0.9)'
+  },
+  blank: {
+    width: 50
+  },
+  readMore: {
+    display: 'flex',
+    marginTop: '2rem'
+  },
+  readMoreButton: {
+    position: 'relative',
+    backgroundColor: '#0089f6',
+    borderRadius: '4px',
+    top: 'auto',
+    right: 'auto',
+    flexGrow: 1
   }
 }
 

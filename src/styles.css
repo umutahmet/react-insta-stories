@@ -44,9 +44,7 @@ p{
   width: 40px;
   height: 40px;
   margin: 100px auto;
-  background-color: #fff;
-
-  border-radius: 100%;
+  font-size: 8rem;
   -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
   animation: sk-scaleout 1.0s infinite ease-in-out;
 }
