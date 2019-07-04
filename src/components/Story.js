@@ -62,21 +62,27 @@ export default class Story extends React.Component {
   getStoryContent() {
     let source = typeof this.props.story === 'object' ? this.props.story.url : this.props.story
     let storyContentStyles = this.props.story.styles || this.props.storyContentStyles || styles.storyContent
-    let type = this.props.story.type === 'video' ? 'video' : 'image'    
+    let type = this.props.story.type === 'video' ? 'video' : 'image'
     return (
       type === 'image' ? <img
-          style={storyContentStyles}
-          src={source}
-          onLoad={this.imageLoaded}
-        /> : (type === 'video' ? <video ref={r => { this.vid = r }} style={storyContentStyles} src={source} controls={false} onLoadedData={this.videoLoaded} autoPlay playsInline /> : null)
+        style={storyContentStyles}
+        src={source}
+        onLoad={this.imageLoaded}
+      /> : (type === 'video' ? <video ref={r => { this.vid = r }} style={storyContentStyles} src={source} controls={false} onLoadedData={this.videoLoaded} autoPlay playsInline /> : null)
     )
   }
   render() {
     let isHeader = typeof this.props.story === 'object' && this.props.story.header
+    const headerStyles = {
+      position: 'absolute',
+      left: 12,
+      bottom: 20,
+      zIndex: 19
+    }
     return (
       <div style={{...styles.story, width: this.props.width, height: this.props.height}}>
         {this.getStoryContent()}
-        {isHeader && <div style={{position: 'absolute', left: 12, top: 20, zIndex: 19}}>
+        {isHeader && <div style={headerStyles}>
           {this.props.header ? () => this.props.header(this.props.story.header) : <Header heading={this.props.story.header.heading} subheading={this.props.story.header.subheading} profileImage={this.props.story.header.profileImage} />}
         </div>}
         {!this.state.loaded && <div style={{width: this.props.width, height: this.props.height, position: 'absolute', left: 0, top: 0, background: 'rgba(0, 0, 0, 0.9)', zIndex: 9, display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#ccc'}}>{this.props.loader || <div className={globalStyle.spinner} />}</div>}

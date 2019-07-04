@@ -17,6 +17,14 @@ class Container extends React.PureComponent {
     this.height = props.height
   }
 
+  componentDidMount() {
+    document.addEventListener('keyup', this.handleKeyup)
+  }
+
+  componentWillUnmount() {
+    document.addEventListener('keyup', this.handleKeyup)
+  }
+
   pause = (action, bufferAction) => {
     this.setState({ pause: action === 'pause', bufferAction })
   }
@@ -37,6 +45,19 @@ class Container extends React.PureComponent {
       this.updateNextStoryId()
     }
   };
+
+  handleKeyup = (event) => {
+    // Keyboard left arrow
+    if (event.keyCode === 37) {
+      event.preventDefault()
+      this.previous()
+    }
+    // Keyboard right arrow
+    if (event.keyCode === 39) {
+      event.preventDefault()
+      this.next()
+    }
+  }
 
   updateNextStoryIdForLoop = () => {
     this.setState({
@@ -126,7 +147,7 @@ const styles = {
   },
   overlay: {
     position: 'absolute',
-    height: 'inherit',
+    height: 450,
     width: 'inherit',
     display: 'flex'
   },
