@@ -30,14 +30,14 @@ const styles = {
     padding: 20
   },
   heading: {
-    fontSize: '1.9rem',
+    fontSize: '2.2rem',
     marginBottom: '1rem',
     fontFamily: `"Abril Titling Bold", "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif`,
     color: 'rgba(255, 255, 255, 0.9)'
   },
   subheading: {
-    fontSize: '1rem',
-    lineHeight: '1.2',
+    fontSize: '1.2rem',
+    lineHeight: '1.4',
     color: 'rgba(255, 255, 255, 0.9)'
   }
 }
