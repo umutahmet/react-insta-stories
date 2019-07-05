@@ -159,7 +159,7 @@ function styleInject(css, ref) {
 }
 
 var css = "body{\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n}\n\n.styles_inner__x-amJ {\n  background: #fff;\n  height: 100%;\n  max-width: 100%;\n  transform-origin: center left;\n\n  -webkit-backface-visibility: hidden;\n  -moz-backface-visibility: hidden;\n  -ms-backface-visibility: hidden;\n  backface-visibility: hidden;\n\n  -webkit-perspective: 1000;\n  -moz-perspective: 1000;\n  -ms-perspective: 1000;\n  perspective: 1000;\n}\n\np{\n  margin: 0\n}\n\n@keyframes styles_slidein__1q-h- {\n  from {\n    -webkit-transform: scale3d(0, 1, 1);\n    -moz-transform: scale3d(0, 1, 1);\n    -ms-transform: scale3d(0, 1, 1);\n    -o-transform: scale3d(0, 1, 1);\n    transform: scale3d(0, 1, 1);\n  }\n  to {\n    -webkit-transform: scale3d(1, 1, 1);\n    -moz-transform: scale3d(1, 1, 1);\n    -ms-transform: scale3d(1, 1, 1);\n    -o-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n.styles_spinner__1CK7F {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  font-size: 8rem;\n  -webkit-animation: styles_sk-scaleout__1hEQ2 1.0s infinite ease-in-out;\n  animation: styles_sk-scaleout__1hEQ2 1.0s infinite ease-in-out;\n}\n\n@-webkit-keyframes styles_sk-scaleout__1hEQ2 {\n  0% { -webkit-transform: scale(0) }\n  100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n  }\n}\n\n@keyframes styles_sk-scaleout__1hEQ2 {\n  0% {\n    -webkit-transform: scale(0);\n    transform: scale(0);\n  } 100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n  }\n}\n\n.styles_autoHide__83H_q{\n  transition: opacity 400ms ease-in-out\n}\n\n.styles_seeMore__1dyHs{\n  height: 10vh;\n  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.styles_seeMore__1dyHs:hover{\n  cursor: pointer;\n}\n\n.styles_seeMore__1dyHs .styles_seemoreText__1wvli{\n  color: white;\n  text-align: center;\n  letter-spacing: 0.2em;\n  margin-bottom: 2.2vh;\n  text-transform: capitalize;\n  opacity: 0.6;\n  font-size: 0.7em;\n  transition: opacity 300ms ease-in-out\n}\n\n.styles_seeMore__1dyHs .styles_seemoreIcon__1rAV5{\n  color: white;\n  text-align: center;\n  letter-spacing: 0.2em;\n  margin-bottom: 0.5vh;\n  opacity: 0.6;\n  text-transform: capitalize;\n  transition: opacity 300ms ease-in-out\n}\n\n.styles_seeMore__1dyHs:hover > .styles_seemoreIcon__1rAV5 {\n  opacity: 0.9;\n}\n\n.styles_seeMore__1dyHs:hover > .styles_seemoreText__1wvli {\n  opacity: 0.9;\n}\n\n.styles_seemoreIcon__1rAV5 img {\n  width: 5vh;\n}\n\n.styles_seeMoreExpanded__1l-e8 {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  box-sizing: border-box;\n  z-index: 99999;\n}\n\n.styles_seeMoreClose__3jq_i{\n  position: absolute;\n  filter: drop-shadow(0 3px 2px #ccc);\n  right: 0.5rem;\n  top: 0.5rem;\n  font-size: 1.5rem;\n  opacity: 0.7;\n  padding: 1rem\n}\n\n.styles_seeMoreClose__3jq_i:hover{\n  cursor: pointer;\n}\n\n.styles_story__ULVZ4 {\n  width: 100vw;\n  height: 100vh;\n}\n.styles_story__ULVZ4::before,\n.styles_story__ULVZ4::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  right: 0;\n  height: 40%;\n}\n\n.styles_story__ULVZ4::before {\n  top: 0;\n  background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(0,212,255,0) 100%);\n}\n.styles_story__ULVZ4::after {\n  bottom: 0;\n  background: linear-gradient(0deg, rgba(3,2,22,1) 40%, rgba(0,212,255,0) 100%);\n}\n\n.styles_bodyHeading__2p6Vz {\n  font-size: 2.2rem;\n  margin-bottom: 1rem;\n  font-family: \"Abril Titling Bold\", \"Book Antiqua\", Palatino, \"Palatino Linotype\", \"Palatino LT STD\", Georgia, serif;\n  color: rgba(255, 255, 255, 0.9);\n}\n.styles_bodySubheading__JFljo {\n  font-size: 1.2rem;\n  line-height: 1.4;\n  color: rgba(255, 255, 255, 0.9);\n}\n\n@media only screen and (max-width: 767px) {\n  .styles_bodyHeading__2p6Vz {\n    font-size: 1.8rem;\n  }\n  .styles_bodySubheading__JFljo {\n    font-size: 1rem;\n  }\n  .styles_story__ULVZ4::after {\n    height: 50%;\n  }\n}\n";
-var globalStyle = { "inner": "styles_inner__x-amJ", "spinner": "styles_spinner__1CK7F", "sk-scaleout": "styles_sk-scaleout__1hEQ2", "autoHide": "styles_autoHide__83H_q", "seeMore": "styles_seeMore__1dyHs", "seemoreText": "styles_seemoreText__1wvli", "seemoreIcon": "styles_seemoreIcon__1rAV5", "seeMoreExpanded": "styles_seeMoreExpanded__1l-e8", "seeMoreClose": "styles_seeMoreClose__3jq_i", "story": "styles_story__ULVZ4", "bodyHeading": "styles_bodyHeading__2p6Vz", "bodySubheading": "styles_bodySubheading__JFljo", "slidein": "styles_slidein__1q-h-" };
+var style = { "inner": "styles_inner__x-amJ", "spinner": "styles_spinner__1CK7F", "sk-scaleout": "styles_sk-scaleout__1hEQ2", "autoHide": "styles_autoHide__83H_q", "seeMore": "styles_seeMore__1dyHs", "seemoreText": "styles_seemoreText__1wvli", "seemoreIcon": "styles_seemoreIcon__1rAV5", "seeMoreExpanded": "styles_seeMoreExpanded__1l-e8", "seeMoreClose": "styles_seeMoreClose__3jq_i", "story": "styles_story__ULVZ4", "bodyHeading": "styles_bodyHeading__2p6Vz", "bodySubheading": "styles_bodySubheading__JFljo", "slidein": "styles_slidein__1q-h-" };
 styleInject(css);
 
 var Body = function Body(_ref) {
@@ -174,12 +174,12 @@ var Body = function Body(_ref) {
       { style: styles$1.text },
       React.createElement(
         'p',
-        { className: globalStyle.bodyHeading },
+        { className: style.bodyHeading },
         heading
       ),
       React.createElement(
         'p',
-        { className: globalStyle.bodySubheading },
+        { className: style.bodySubheading },
         subheading
       ),
       React.createElement(
@@ -261,14 +261,14 @@ function seeMore(props) {
 
   return showContent ? React.createElement(
     'div',
-    { className: globalStyle.seeMoreExpanded },
+    { className: style.seeMoreExpanded },
     seeMoreContent,
     React.createElement(
       'div',
       { onClick: function onClick() {
           toggleMore(false);
           action('play');
-        }, className: globalStyle.seeMoreClose },
+        }, className: style.seeMoreClose },
       React.createElement(
         'span',
         null,
@@ -280,15 +280,15 @@ function seeMore(props) {
     { onClick: function onClick() {
         toggleMore(true);
         action('pause');
-      }, className: globalStyle.seeMore },
+      }, className: style.seeMore },
     React.createElement(
       'span',
-      { className: globalStyle.seemoreIcon },
+      { className: style.seemoreIcon },
       React.createElement('img', { src: up })
     ),
     React.createElement(
       'span',
-      { className: globalStyle.seemoreText },
+      { className: style.seemoreText },
       'Read more'
     )
   );
@@ -419,7 +419,7 @@ var Story = function (_React$Component) {
 
       return React.createElement(
         'div',
-        { className: globalStyle.story, style: _extends({}, styles$2.story, { maxWidth: width, maxHeight: height }) },
+        { className: style.story, style: _extends({}, styles$2.story, { maxWidth: width, maxHeight: height }) },
         this.getStoryContent(),
         React.createElement(
           'div',
@@ -436,7 +436,7 @@ var Story = function (_React$Component) {
           { style: _extends({}, styles$2.loading, { width: width, height: height }) },
           this.props.loader || React.createElement(
             'div',
-            { className: globalStyle.spinner },
+            { className: style.spinner },
             '\uD83C\uDF4C'
           )
         )
@@ -502,7 +502,7 @@ Story.propTypes = {
 var ProgressWrapper = function ProgressWrapper(props) {
   return React.createElement(
     'div',
-    { className: globalStyle.autoHide, style: _extends({}, styles$3.progress, getProgressWrapperStyle(props)) },
+    { className: style.autoHide, style: _extends({}, styles$3.progress, getProgressWrapperStyle(props)) },
     props.children
   );
 };
@@ -576,7 +576,7 @@ var Progress = function (_React$PureComponent) {
           ref: function ref(r) {
             _this2.inner = r;
           },
-          className: globalStyle.inner,
+          className: style.inner,
           style: getProgressStyle({ active: active, pause: pause, duration: this.state.duration }) })
       );
     }
@@ -598,7 +598,7 @@ var Progress = function (_React$PureComponent) {
 
 
 var animation = function animation(duration) {
-  return duration + 'ms linear 0ms ' + globalStyle.slidein;
+  return duration + 'ms linear 0ms ' + style.slidein;
 };
 var animationPlayState = function animationPlayState(pause) {
   return pause ? 'paused' : 'running';
