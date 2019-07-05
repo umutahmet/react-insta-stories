@@ -88,7 +88,7 @@ export default class Story extends React.Component {
     const { heading, subheading, authorName, timeago, profileImage } = this.props.story.header
     const { action, height, width, story: { seeMore } } = this.props
     return (
-      <div className={globalStyle.story} style={{...styles.story, width, height}}>
+      <div className={globalStyle.story} style={{...styles.story, maxWidth: width, maxHeight: height}}>
         {this.getStoryContent()}
         <div style={{...styles.header}}>
           <Header authorName={authorName} timeago={timeago} image={profileImage} />

@@ -105,7 +105,7 @@ class Container extends React.PureComponent {
 
   render() {
     return (
-      <div style={{ ...styles.container, ...{ width: this.width, height: this.height } }}>
+      <div style={{ ...styles.container, ...{ maxWidth: this.width, maxHeight: this.height } }}>
         <ProgressArray
           next={this.next}
           pause={this.state.pause}
@@ -143,14 +143,16 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     background: '#111',
-    position: 'relative'
+    position: 'relative',
+    width: '100vw',
+    height: '100vh'
   },
   overlay: {
     position: 'absolute',
     height: 450,
-    width: 'inherit',
+    width: '100%',
     display: 'flex',
-    top: 60
+    top: 100
   },
   left: {
   },

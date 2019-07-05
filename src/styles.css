@@ -143,6 +143,10 @@ p{
   cursor: pointer;
 }
 
+.story {
+  width: 100vw;
+  height: 100vh;
+}
 .story::before,
 .story::after {
   content: "";
@@ -159,4 +163,28 @@ p{
 .story::after {
   bottom: 0;
   background: linear-gradient(0deg, rgba(3,2,22,1) 40%, rgba(0,212,255,0) 100%);
+}
+
+.bodyHeading {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  font-family: "Abril Titling Bold", "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+  color: rgba(255, 255, 255, 0.9);
+}
+.bodySubheading {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media only screen and (max-width: 767px) {
+  .bodyHeading {
+    font-size: 1.8rem;
+  }
+  .bodySubheading {
+    font-size: 1rem;
+  }
+  .story::after {
+    height: 50%;
+  }
 }

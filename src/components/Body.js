@@ -1,14 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import globalStyle from './../styles.css'
 
-const Header = ({ profileImage, heading, subheading }) =>
+const Body = ({ profileImage, heading, subheading }) =>
   <div style={styles.main}>
     <span style={styles.text}>
-      <p style={styles.heading}>{heading}</p>
-      <p style={styles.subheading}>{subheading}</p>
+      <p className={globalStyle.bodyHeading}>{heading}</p>
+      <p className={globalStyle.bodySubheading}>{subheading}</p>
       <div style={{...styles.readMore}}>
         <div style={{...styles.blank}}>&nbsp;</div>
-        <button style={{...styles.readMoreButton}}>READ ARTICLE</button>
+        <a href='https://www.smh.com.au/opinion/prepare-for-the-global-bananapocalypse-20171226-h0a2p2.html' style={{...styles.readMoreButton}}>
+          READ ARTICLE
+        </a>
         <div style={{...styles.blank}}>&nbsp;</div>
       </div>
     </span>
@@ -34,17 +37,6 @@ const styles = {
     flexDirection: 'column',
     padding: 20
   },
-  heading: {
-    fontSize: '2.2rem',
-    marginBottom: '1rem',
-    fontFamily: `"Abril Titling Bold", "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif`,
-    color: 'rgba(255, 255, 255, 0.9)'
-  },
-  subheading: {
-    fontSize: '1.2rem',
-    lineHeight: '1.4',
-    color: 'rgba(255, 255, 255, 0.9)'
-  },
   blank: {
     width: 50
   },
@@ -58,14 +50,17 @@ const styles = {
     borderRadius: '4px',
     top: 'auto',
     right: 'auto',
-    flexGrow: 1
+    flexGrow: 1,
+    color: 'white',
+    padding: '10px',
+    textAlign: 'center'
   }
 }
 
-Header.propTypes = {
+Body.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
   profileImage: PropTypes.string
 }
 
-export default Header
+export default Body

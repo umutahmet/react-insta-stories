@@ -131,7 +131,38 @@ Header.propTypes = {
   profileImage: PropTypes.string
 };
 
-var Header$1 = function Header(_ref) {
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css = "body{\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n}\n\n.styles_inner__x-amJ {\n  background: #fff;\n  height: 100%;\n  max-width: 100%;\n  transform-origin: center left;\n\n  -webkit-backface-visibility: hidden;\n  -moz-backface-visibility: hidden;\n  -ms-backface-visibility: hidden;\n  backface-visibility: hidden;\n\n  -webkit-perspective: 1000;\n  -moz-perspective: 1000;\n  -ms-perspective: 1000;\n  perspective: 1000;\n}\n\np{\n  margin: 0\n}\n\n@keyframes styles_slidein__1q-h- {\n  from {\n    -webkit-transform: scale3d(0, 1, 1);\n    -moz-transform: scale3d(0, 1, 1);\n    -ms-transform: scale3d(0, 1, 1);\n    -o-transform: scale3d(0, 1, 1);\n    transform: scale3d(0, 1, 1);\n  }\n  to {\n    -webkit-transform: scale3d(1, 1, 1);\n    -moz-transform: scale3d(1, 1, 1);\n    -ms-transform: scale3d(1, 1, 1);\n    -o-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n.styles_spinner__1CK7F {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  font-size: 8rem;\n  -webkit-animation: styles_sk-scaleout__1hEQ2 1.0s infinite ease-in-out;\n  animation: styles_sk-scaleout__1hEQ2 1.0s infinite ease-in-out;\n}\n\n@-webkit-keyframes styles_sk-scaleout__1hEQ2 {\n  0% { -webkit-transform: scale(0) }\n  100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n  }\n}\n\n@keyframes styles_sk-scaleout__1hEQ2 {\n  0% {\n    -webkit-transform: scale(0);\n    transform: scale(0);\n  } 100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n  }\n}\n\n.styles_autoHide__83H_q{\n  transition: opacity 400ms ease-in-out\n}\n\n.styles_seeMore__1dyHs{\n  height: 10vh;\n  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.styles_seeMore__1dyHs:hover{\n  cursor: pointer;\n}\n\n.styles_seeMore__1dyHs .styles_seemoreText__1wvli{\n  color: white;\n  text-align: center;\n  letter-spacing: 0.2em;\n  margin-bottom: 2.2vh;\n  text-transform: capitalize;\n  opacity: 0.6;\n  font-size: 0.7em;\n  transition: opacity 300ms ease-in-out\n}\n\n.styles_seeMore__1dyHs .styles_seemoreIcon__1rAV5{\n  color: white;\n  text-align: center;\n  letter-spacing: 0.2em;\n  margin-bottom: 0.5vh;\n  opacity: 0.6;\n  text-transform: capitalize;\n  transition: opacity 300ms ease-in-out\n}\n\n.styles_seeMore__1dyHs:hover > .styles_seemoreIcon__1rAV5 {\n  opacity: 0.9;\n}\n\n.styles_seeMore__1dyHs:hover > .styles_seemoreText__1wvli {\n  opacity: 0.9;\n}\n\n.styles_seemoreIcon__1rAV5 img {\n  width: 5vh;\n}\n\n.styles_seeMoreExpanded__1l-e8 {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  box-sizing: border-box;\n  z-index: 99999;\n}\n\n.styles_seeMoreClose__3jq_i{\n  position: absolute;\n  filter: drop-shadow(0 3px 2px #ccc);\n  right: 0.5rem;\n  top: 0.5rem;\n  font-size: 1.5rem;\n  opacity: 0.7;\n  padding: 1rem\n}\n\n.styles_seeMoreClose__3jq_i:hover{\n  cursor: pointer;\n}\n\n.styles_story__ULVZ4 {\n  width: 100vw;\n  height: 100vh;\n}\n.styles_story__ULVZ4::before,\n.styles_story__ULVZ4::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  right: 0;\n  height: 40%;\n}\n\n.styles_story__ULVZ4::before {\n  top: 0;\n  background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(0,212,255,0) 100%);\n}\n.styles_story__ULVZ4::after {\n  bottom: 0;\n  background: linear-gradient(0deg, rgba(3,2,22,1) 40%, rgba(0,212,255,0) 100%);\n}\n\n.styles_bodyHeading__2p6Vz {\n  font-size: 2.2rem;\n  margin-bottom: 1rem;\n  font-family: \"Abril Titling Bold\", \"Book Antiqua\", Palatino, \"Palatino Linotype\", \"Palatino LT STD\", Georgia, serif;\n  color: rgba(255, 255, 255, 0.9);\n}\n.styles_bodySubheading__JFljo {\n  font-size: 1.2rem;\n  line-height: 1.4;\n  color: rgba(255, 255, 255, 0.9);\n}\n\n@media only screen and (max-width: 767px) {\n  .styles_bodyHeading__2p6Vz {\n    font-size: 1.8rem;\n  }\n  .styles_bodySubheading__JFljo {\n    font-size: 1rem;\n  }\n  .styles_story__ULVZ4::after {\n    height: 50%;\n  }\n}\n";
+var globalStyle = { "inner": "styles_inner__x-amJ", "spinner": "styles_spinner__1CK7F", "sk-scaleout": "styles_sk-scaleout__1hEQ2", "autoHide": "styles_autoHide__83H_q", "seeMore": "styles_seeMore__1dyHs", "seemoreText": "styles_seemoreText__1wvli", "seemoreIcon": "styles_seemoreIcon__1rAV5", "seeMoreExpanded": "styles_seeMoreExpanded__1l-e8", "seeMoreClose": "styles_seeMoreClose__3jq_i", "story": "styles_story__ULVZ4", "bodyHeading": "styles_bodyHeading__2p6Vz", "bodySubheading": "styles_bodySubheading__JFljo", "slidein": "styles_slidein__1q-h-" };
+styleInject(css);
+
+var Body = function Body(_ref) {
   var profileImage = _ref.profileImage,
       heading = _ref.heading,
       subheading = _ref.subheading;
@@ -143,12 +174,12 @@ var Header$1 = function Header(_ref) {
       { style: styles$1.text },
       React.createElement(
         'p',
-        { style: styles$1.heading },
+        { className: globalStyle.bodyHeading },
         heading
       ),
       React.createElement(
         'p',
-        { style: styles$1.subheading },
+        { className: globalStyle.bodySubheading },
         subheading
       ),
       React.createElement(
@@ -160,8 +191,8 @@ var Header$1 = function Header(_ref) {
           '\xA0'
         ),
         React.createElement(
-          'button',
-          { style: _extends({}, styles$1.readMoreButton) },
+          'a',
+          { href: 'https://www.smh.com.au/opinion/prepare-for-the-global-bananapocalypse-20171226-h0a2p2.html', style: _extends({}, styles$1.readMoreButton) },
           'READ ARTICLE'
         ),
         React.createElement(
@@ -194,17 +225,6 @@ var styles$1 = {
     flexDirection: 'column',
     padding: 20
   },
-  heading: {
-    fontSize: '2.2rem',
-    marginBottom: '1rem',
-    fontFamily: '"Abril Titling Bold", "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif',
-    color: 'rgba(255, 255, 255, 0.9)'
-  },
-  subheading: {
-    fontSize: '1.2rem',
-    lineHeight: '1.4',
-    color: 'rgba(255, 255, 255, 0.9)'
-  },
   blank: {
     width: 50
   },
@@ -218,46 +238,18 @@ var styles$1 = {
     borderRadius: '4px',
     top: 'auto',
     right: 'auto',
-    flexGrow: 1
+    flexGrow: 1,
+    color: 'white',
+    padding: '10px',
+    textAlign: 'center'
   }
 };
 
-Header$1.propTypes = {
+Body.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
   profileImage: PropTypes.string
 };
-
-function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
-  var insertAt = ref.insertAt;
-
-  if (!css || typeof document === 'undefined') { return; }
-
-  var head = document.head || document.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-  style.type = 'text/css';
-
-  if (insertAt === 'top') {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
-    }
-  } else {
-    head.appendChild(style);
-  }
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-var css = "body{\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n}\n\n.styles_inner__x-amJ {\n  background: #fff;\n  height: 100%;\n  max-width: 100%;\n  transform-origin: center left;\n\n  -webkit-backface-visibility: hidden;\n  -moz-backface-visibility: hidden;\n  -ms-backface-visibility: hidden;\n  backface-visibility: hidden;\n\n  -webkit-perspective: 1000;\n  -moz-perspective: 1000;\n  -ms-perspective: 1000;\n  perspective: 1000;\n}\n\np{\n  margin: 0\n}\n\n@keyframes styles_slidein__1q-h- {\n  from {\n    -webkit-transform: scale3d(0, 1, 1);\n    -moz-transform: scale3d(0, 1, 1);\n    -ms-transform: scale3d(0, 1, 1);\n    -o-transform: scale3d(0, 1, 1);\n    transform: scale3d(0, 1, 1);\n  }\n  to {\n    -webkit-transform: scale3d(1, 1, 1);\n    -moz-transform: scale3d(1, 1, 1);\n    -ms-transform: scale3d(1, 1, 1);\n    -o-transform: scale3d(1, 1, 1);\n    transform: scale3d(1, 1, 1);\n  }\n}\n\n.styles_spinner__1CK7F {\n  width: 40px;\n  height: 40px;\n  margin: 100px auto;\n  font-size: 8rem;\n  -webkit-animation: styles_sk-scaleout__1hEQ2 1.0s infinite ease-in-out;\n  animation: styles_sk-scaleout__1hEQ2 1.0s infinite ease-in-out;\n}\n\n@-webkit-keyframes styles_sk-scaleout__1hEQ2 {\n  0% { -webkit-transform: scale(0) }\n  100% {\n    -webkit-transform: scale(1.0);\n    opacity: 0;\n  }\n}\n\n@keyframes styles_sk-scaleout__1hEQ2 {\n  0% {\n    -webkit-transform: scale(0);\n    transform: scale(0);\n  } 100% {\n    -webkit-transform: scale(1.0);\n    transform: scale(1.0);\n    opacity: 0;\n  }\n}\n\n.styles_autoHide__83H_q{\n  transition: opacity 400ms ease-in-out\n}\n\n.styles_seeMore__1dyHs{\n  height: 10vh;\n  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  align-items: center;\n  justify-content: flex-end;\n}\n\n.styles_seeMore__1dyHs:hover{\n  cursor: pointer;\n}\n\n.styles_seeMore__1dyHs .styles_seemoreText__1wvli{\n  color: white;\n  text-align: center;\n  letter-spacing: 0.2em;\n  margin-bottom: 2.2vh;\n  text-transform: capitalize;\n  opacity: 0.6;\n  font-size: 0.7em;\n  transition: opacity 300ms ease-in-out\n}\n\n.styles_seeMore__1dyHs .styles_seemoreIcon__1rAV5{\n  color: white;\n  text-align: center;\n  letter-spacing: 0.2em;\n  margin-bottom: 0.5vh;\n  opacity: 0.6;\n  text-transform: capitalize;\n  transition: opacity 300ms ease-in-out\n}\n\n.styles_seeMore__1dyHs:hover > .styles_seemoreIcon__1rAV5 {\n  opacity: 0.9;\n}\n\n.styles_seeMore__1dyHs:hover > .styles_seemoreText__1wvli {\n  opacity: 0.9;\n}\n\n.styles_seemoreIcon__1rAV5 img {\n  width: 5vh;\n}\n\n.styles_seeMoreExpanded__1l-e8 {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  box-sizing: border-box;\n  z-index: 99999;\n}\n\n.styles_seeMoreClose__3jq_i{\n  position: absolute;\n  filter: drop-shadow(0 3px 2px #ccc);\n  right: 0.5rem;\n  top: 0.5rem;\n  font-size: 1.5rem;\n  opacity: 0.7;\n  padding: 1rem\n}\n\n.styles_seeMoreClose__3jq_i:hover{\n  cursor: pointer;\n}\n\n.styles_story__ULVZ4::before,\n.styles_story__ULVZ4::after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  right: 0;\n  height: 40%;\n}\n\n.styles_story__ULVZ4::before {\n  top: 0;\n  background: linear-gradient(180deg, rgba(3,2,22,1) 0%, rgba(0,212,255,0) 100%);\n}\n.styles_story__ULVZ4::after {\n  bottom: 0;\n  background: linear-gradient(0deg, rgba(3,2,22,1) 40%, rgba(0,212,255,0) 100%);\n}\n";
-var style = { "inner": "styles_inner__x-amJ", "spinner": "styles_spinner__1CK7F", "sk-scaleout": "styles_sk-scaleout__1hEQ2", "autoHide": "styles_autoHide__83H_q", "seeMore": "styles_seeMore__1dyHs", "seemoreText": "styles_seemoreText__1wvli", "seemoreIcon": "styles_seemoreIcon__1rAV5", "seeMoreExpanded": "styles_seeMoreExpanded__1l-e8", "seeMoreClose": "styles_seeMoreClose__3jq_i", "story": "styles_story__ULVZ4", "slidein": "styles_slidein__1q-h-" };
-styleInject(css);
 
 var up = "data:image/png;base64,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";
 
@@ -269,14 +261,14 @@ function seeMore(props) {
 
   return showContent ? React.createElement(
     'div',
-    { className: style.seeMoreExpanded },
+    { className: globalStyle.seeMoreExpanded },
     seeMoreContent,
     React.createElement(
       'div',
       { onClick: function onClick() {
           toggleMore(false);
           action('play');
-        }, className: style.seeMoreClose },
+        }, className: globalStyle.seeMoreClose },
       React.createElement(
         'span',
         null,
@@ -288,15 +280,15 @@ function seeMore(props) {
     { onClick: function onClick() {
         toggleMore(true);
         action('pause');
-      }, className: style.seeMore },
+      }, className: globalStyle.seeMore },
     React.createElement(
       'span',
-      { className: style.seemoreIcon },
+      { className: globalStyle.seemoreIcon },
       React.createElement('img', { src: up })
     ),
     React.createElement(
       'span',
-      { className: style.seemoreText },
+      { className: globalStyle.seemoreText },
       'Read more'
     )
   );
@@ -427,7 +419,7 @@ var Story = function (_React$Component) {
 
       return React.createElement(
         'div',
-        { className: style.story, style: _extends({}, styles$2.story, { width: width, height: height }) },
+        { className: globalStyle.story, style: _extends({}, styles$2.story, { maxWidth: width, maxHeight: height }) },
         this.getStoryContent(),
         React.createElement(
           'div',
@@ -437,14 +429,14 @@ var Story = function (_React$Component) {
         React.createElement(
           'div',
           { style: _extends({}, styles$2.body) },
-          React.createElement(Header$1, { heading: heading, subheading: subheading })
+          React.createElement(Body, { heading: heading, subheading: subheading })
         ),
         !this.state.loaded && React.createElement(
           'div',
           { style: _extends({}, styles$2.loading, { width: width, height: height }) },
           this.props.loader || React.createElement(
             'div',
-            { className: style.spinner },
+            { className: globalStyle.spinner },
             '\uD83C\uDF4C'
           )
         )
@@ -510,7 +502,7 @@ Story.propTypes = {
 var ProgressWrapper = function ProgressWrapper(props) {
   return React.createElement(
     'div',
-    { className: style.autoHide, style: _extends({}, styles$3.progress, getProgressWrapperStyle(props)) },
+    { className: globalStyle.autoHide, style: _extends({}, styles$3.progress, getProgressWrapperStyle(props)) },
     props.children
   );
 };
@@ -584,7 +576,7 @@ var Progress = function (_React$PureComponent) {
           ref: function ref(r) {
             _this2.inner = r;
           },
-          className: style.inner,
+          className: globalStyle.inner,
           style: getProgressStyle({ active: active, pause: pause, duration: this.state.duration }) })
       );
     }
@@ -606,7 +598,7 @@ var Progress = function (_React$PureComponent) {
 
 
 var animation = function animation(duration) {
-  return duration + 'ms linear 0ms ' + style.slidein;
+  return duration + 'ms linear 0ms ' + globalStyle.slidein;
 };
 var animationPlayState = function animationPlayState(pause) {
   return pause ? 'paused' : 'running';
@@ -818,7 +810,7 @@ var Container = function (_React$PureComponent) {
 
       return React.createElement(
         'div',
-        { style: _extends({}, styles$5.container, { width: this.width, height: this.height }) },
+        { style: _extends({}, styles$5.container, { maxWidth: this.width, maxHeight: this.height }) },
         React.createElement(ProgressArray, {
           next: this.next,
           pause: this.state.pause,
@@ -871,14 +863,16 @@ var styles$5 = {
     display: 'flex',
     flexDirection: 'column',
     background: '#111',
-    position: 'relative'
+    position: 'relative',
+    width: '100vw',
+    height: '100vh'
   },
   overlay: {
     position: 'absolute',
     height: 450,
-    width: 'inherit',
+    width: '100%',
     display: 'flex',
-    top: 60
+    top: 100
   },
   left: {},
   right: {}
